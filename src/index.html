@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/animations.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <title>Easytest</title>
+</head>
+<body>
+    <div class="wallpaper"></div>
+    <div class="container">
+        <h1>Novo Usuário</h1>
+
+        <a href="./listar.html" class="btn-menu" >
+        Listar usuários
+        </a>
+
+        <form name="form" method="POST">
+            <div class="label-float">
+            <input type="text" id="fullname" name="fullname" placeholder=" " />
+            <label>Nome completo (sem abreviações)</label>
+            <span id="error__name" class="error__name">Campo deve conter 3 caracteres ou mais</span>
+            </div>
+
+            <div class="label-float">
+            <input type="email" id="email" name="email" placeholder=" " />
+            <label>E-mail</label>
+            <span id="error__email" class="error__text">Digite um email válido</span>
+            </div>
+
+            <div class="label-float">
+                <input type="text" id="cpf" name="cpf" placeholder=" " />
+                <label>CPF</label>
+                <span id="error__cpf" class="error__text">Digite um CPF válido</span>
+            </div>
+
+            <div class="label-float">
+                <input type="text" id="mobile" name="mobile" placeholder=" " />
+                <label>Telefone</label>
+                <span id="error__mobile" class="error__text">Digite um telefone válido</span>
+            </div>
+            
+            <p>
+                <button id="buttonAdd" disabled class="btn--add disabled"><span id="addText">Cadastrar</span></button>
+            </p>
+        </form>
+    </div>
+    <script type="module" src="./js/LoadData.js"></script>
+</body>
+</html>

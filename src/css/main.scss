@@ -1,0 +1,398 @@
+/* HTML BG */
+$bgFallback: rgba(78, 2, 80, .9);
+$bgLinearGradient: linear-gradient(to bottom right, rgba(78, 2, 80, .9) 25%, rgba(255, 187, 0, .9));
+$bgImage: url("../img/financial.jpg");
+$bgAnimationName: zoomOut;
+
+/*FONT-FAMILY*/
+$appFontFamily: Poppins, sans-serif;
+$fontColor: #efeeed;
+
+/*BUTTONS STATE COLORS*/
+$primaryBtn: rgba(0, 200, 179, 1);
+$primaryBtnHover: rgba(0, 200, 179, .7);
+$primaryBtnColor: white;
+$primaryBtnDisabled: #f6f6f6;
+$primaryBtnColorDisabled: #dddcdc;
+
+/*CONTAINER*/
+$bgContainer: rgba(255,255,255, .4);
+$shadowContainer: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+/*FORM*/
+$inputColor: #333333;
+$inputBorderBottom: 2px solid #efeeed;
+$inputBorderBottomError: 2px solid red;
+$errorNotification: rgb(235, 74, 70);
+$errorShadowNotification: 1px 1px 1px darkred;
+
+/*USERS CARD LIST*/
+$bgUsersCard: rgba(255,255,255,.3);
+$bgBtnRemove: red;
+
+html {
+    background-color: $bgFallback;
+    background-image: $bgLinearGradient; 
+    color: $fontColor;
+    font-family: $appFontFamily;
+    font-size: 1em;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    min-height: 100vh;
+    min-width: 300px;
+    overflow-x: hidden;
+    }
+
+h1 {
+    font-size: 1.35em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.wallpaper { 
+    display: block; 
+    height: 100%; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-image: $bgImage; 
+    background-position: center;
+    background-size: cover;
+    opacity: 0.4;
+    position: fixed;
+    animation-name: $bgAnimationName; 
+    animation-timing-function: ease-out;
+}
+
+.container {
+    width: 80%;
+    display: block;
+    margin: 40px auto;
+    background-color: $bgContainer;
+    backdrop-filter: blur(12px);
+    box-sizing: border-box;
+    padding: 25px;
+    min-height: 80vh;
+    border-radius: 8px;
+    box-shadow: $shadowContainer;
+    animation-name: slideUp;
+    animation-timing-function: cubic-bezier(1.5, 1, 0.4, 1.6);
+    animation-delay: 600ms;
+    animation-duration: 1000ms;
+    position: relative;
+}
+
+.field {
+    position: relative;
+    padding: 15px;
+}
+
+.label__text {
+    position: absolute;
+    top: 0;
+    transition: all .3s;
+}
+
+.label-float{
+    position: relative;
+    padding-top: 13px;
+    margin: 40px auto;
+}
+
+.label-float:first-of-type  {
+    margin: 20px auto 40px auto;
+}
+  
+.label-float input{
+    border: 0;
+    border-bottom: $inputBorderBottom;
+    outline: none;
+    min-width: 180px;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-appearance:none;
+    border-radius: 0;
+    font-size: .9em;
+  }
+  
+  .label-float input:focus{
+    border-bottom: $inputBorderBottom;
+  }
+  
+  .label-float input::placeholder{
+    color:transparent;
+  }
+  
+  .label-float label{
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    font-size: .7193em;
+    left: 0;
+    margin-top: 25px;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+  }
+  
+  .label-float input:focus:required:invalid{
+    border-bottom: $inputBorderBottomError;
+  }
+
+.label-float span {
+    display: none;
+    opacity: 0;
+    transition: all .3s;
+}  
+
+.label-float .show{ 
+    display: block!important;
+    opacity: 1;
+    color: $errorNotification;
+    text-shadow: $errorShadowNotification;
+    font-size: .69em;
+}
+
+  .label-float input:required:invalid + label:before{
+    content: '*';
+  }
+  .label-float input:focus + label,
+  .label-float input:not(:placeholder-shown) + label{
+    font-size: .6em;
+    margin-top: 0;
+  }
+
+input {
+    background-color: transparent;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    width: 100%;
+    padding: 8px 0;
+    color: $inputColor;
+}
+
+input:focus {
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    outline-color: transparent;
+    outline: 0
+}
+
+input:focus + .label__text {
+    top: -20px;
+    font-size: .8em;
+    text-align: left;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: $inputColor !important;   
+}
+
+button.btn--add {
+    width: 100%;
+    height: 60px;
+    border-radius: 35px;
+    border-color: transparent;
+    background-color: $primaryBtn;
+    color: $primaryBtnColor;
+    font-size: 1.3em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s;
+} 
+
+button.btn--add:focus {
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    outline-color: transparent;
+    outline: 0
+}
+
+button.btn--add:hover {
+    background-color: $primaryBtnHover;
+    box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.2); 
+    transform: scale(1.02) translateY(-1px);
+}
+
+button.btn--add:active {
+    background-color: $primaryBtnHover;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); 
+    transform: scale(0.98) translateY(-2px);
+}
+
+.btn-menu {
+    width: fit-content;
+    padding: 10px 18px 10px 33px;
+    font-size: .8em;
+    font-weight: 600;
+    color: $primaryBtnColor;
+    position: relative;
+    margin: 20px auto 0 auto;
+    background-color: $primaryBtn;
+    border-radius: 30px;
+    text-decoration: none;
+    display: block;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.btn-menu::before {
+    content: "\26A1";
+    font-size: 1.2em;
+    position:absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-menu:hover {
+    background-color: $primaryBtnHover;
+    box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.2); 
+    transform: scale(1.02) translateY(-1px);
+}
+
+.btn-menu:-webkit-autofill,
+.btn-menu:-webkit-autofill:hover,
+.btn-menu:-webkit-autofill:focus,
+.btn-menu:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: $inputColor !important;   
+}
+
+.disabled {
+    color: $primaryBtnColorDisabled!important;
+    background-color: $primaryBtnDisabled!important;
+    cursor: default!important;
+}
+
+
+.users__card {
+    background-color: $bgUsersCard;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+    position: relative;
+    font-size: .9em;
+    transition: all .3s;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.users__card--remove {
+    transform: scale(.3);
+    opacity: 0;
+}
+
+.remove {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.remove a {
+    display: block;
+    padding: 3px;
+    height: 26px;
+    width: 26px; 
+    border-radius: 13px;
+    color: $primaryBtnColor;
+    background-color: $bgBtnRemove;
+    text-align: center;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.remove a:hover {
+    transform: scale(.9);
+}
+
+@media (min-width: 768px)  {
+    .container {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 45%;
+    }
+    h1 {
+        font-size: 2em;
+        text-align: left;
+    }
+
+    .label-float label {
+        font-size: 1.3em;
+        margin-top: 13px;
+    }
+
+    .label-float input {
+        font-size: 1.3em;
+        padding: 10px 10px 10px 0;
+    }
+
+    .label-float .show {
+        font-size: 1em;
+    }
+
+    .label-float input:focus + label,
+    .label-float input:not(:placeholder-shown) + label{
+      font-size: .8em;
+      margin-top: 0;
+    }
+
+    .btn-menu {
+        font-size: 1em;
+        display: absolute;
+        top: 25px;
+        right: 20px;
+    }
+
+    .label-float:first-of-type {
+        margin: 40px auto;
+    }
+
+    .btn-menu {
+        position: absolute;
+        top: 25px;
+        right: 20px;
+        font-size: 1em;
+        margin: 0;
+    }
+
+    button.btn--add {
+        font-size: 1.6em;
+    }
+}
+
+@media (min-width: 420px) and (max-width: 1023px) {
+    .label-float label {
+        font-size: 1em;
+        margin-top: 22px;
+    }
+
+    .label-float input:focus + label,
+    .label-float input:not(:placeholder-shown) + label{
+      font-size: .8em;
+      margin-top: 0;
+    }
+
+    .label-float input {
+        font-size: 1em
+    }
+
+    .label-float .show {
+        font-size: .8em;
+    }
+}
